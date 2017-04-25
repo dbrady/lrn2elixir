@@ -72,3 +72,5 @@ tuple < map < list < bitstring`
 # Further Details
 
 Check out the [Operator Reference](https://hexdocs.pm/elixir/master/operators.html)
+
+There's a bunch more operators coming, like `&&&` and `|>` and `~~~`.
