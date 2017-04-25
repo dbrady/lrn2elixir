@@ -386,3 +386,23 @@ Hmm, this would also mean that manipulating the last element of a list would
 _also_ require copying the list!
 
 push and pop are dead, long live unshift and shift!
+
+# General Trivia and Idia
+
+* Erlang tries to guide you to do the right thing. There is no `elem/2` for
+  lists because that would be an expensive method to call.
+* Many functions return tuples, with the first element being an atom containing
+  `:ok` or `:error` to let you know how things went. E.g. `File.read/1` returns
+  a tuple; if `elem(file, 0) == :ok` then `elem(file, 1)` is going to contain
+  the contents of the file. But if elem 0 is `:error`, then `elem(file, 1)` is
+  going to contain error information. The tuple returned might be `{:error,
+  :enoent}` for file not found.
+* When counting the elements of a data structure, Erlang will use `size` in the
+  name if it can execute in constant time (e.g. it's precalculated) and `length`
+  if it executes in linear time. So `byte_size/1` and `tuple_size/1` are both
+  `O(k)`, while `length/1` (for lists) and `String.length/1` are both `O(n)`.
+
+# Other Main Data Types
+
+This manual mentions `Port`, `Reference` and `PID` as data types usually used in
+process communications, but they're left until those sections.
