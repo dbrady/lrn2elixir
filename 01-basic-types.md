@@ -17,10 +17,11 @@ true      # boolean (note: booleans are atoms)
 {1, 2, 3} # tuple
 ```
 
-There are `is_<type>` methods for all of these but one: `is_integer/1`, `is_float/1`,
-`is_boolean/1`, `is_atom`, `is_list`, `is_tuple` all work.
+There are `is_<type>` methods for all of these but one: `is_integer/1`,
+`is_float/1`, `is_boolean/1`, `is_atom`, `is_list`, `is_tuple` all work.
 
-`is_string` does not exist:
+`is_string` does not exist. (UPDATE: That's because they're called
+"bitstrings". Use `is_bitstring/1` instead.)
 
 ```
 iex(8)> h is_string/1
