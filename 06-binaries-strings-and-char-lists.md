@@ -117,3 +117,7 @@ A char list is nothing more than a list of code points. Create them with
 single-quoted literals, e.g.. `'hello'`.
 
 `is_list('hello')` returns true.
+
+Char lists are used frequently in Erlang, as it does not support binaries. To
+interact with existing Erlang libraries, make use of `to_string/1` and
+`to_charlist/1` to convert back and forth.
