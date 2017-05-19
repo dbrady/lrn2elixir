@@ -8,7 +8,7 @@ defmodule RomanNumerals do
   end
 
   def puts(item) do
-    IO.puts inspect(item)
+    IO.puts item
   end
 
   def int_to_roman(number, space_numerals_out \\ false) do
@@ -17,8 +17,7 @@ defmodule RomanNumerals do
   end
 
   def roman_digitize(number) when number >= 4_000_000, do: raise "Number too large to be expressed by Romans; invent Algebra, retry with Sumerian-based counting system, or simply await the fall of Rome"
-  def roman_digitize(number), do: roman_digitize(number, 0)
-  def roman_digitize(0, 0), do: ""
+  def roman_digitize(number), do: [roman_digitize(number, 0)]
   def roman_digitize(number, power) when number >= 10, do: [roman_digitize(div(number, 10), power+1)] ++ [roman_digitize(rem(number, 10), power)]
   def roman_digitize(digit, power) do
     table = %{
